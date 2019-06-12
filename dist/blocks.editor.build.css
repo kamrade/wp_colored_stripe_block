@@ -11,9 +11,7 @@
  * which makes it higher in priority.
  */
 .wp-block-cgb-block-colored-stripe-block {
-  background: #bada55;
-  border: 0.2rem solid #292929;
-  color: #292929;
-  margin: 0 auto;
-  max-width: 740px;
+  background: #F4F7FB;
+  border: 1px dotted #C4CBD9;
+  color: #1E222A;
   padding: 2rem; }

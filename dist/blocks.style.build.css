@@ -10,9 +10,7 @@
  * CSS for both Frontend+Backend.
  */
 .wp-block-cgb-block-colored-stripe-block {
-  background: orangered;
-  border: 0.2rem solid #292929;
-  color: #292929;
-  margin: 0 auto;
-  max-width: 740px;
+  background: #fff;
+  border: 1px solid #E2E6EF;
+  border-radius: 4px;
   padding: 2rem; }

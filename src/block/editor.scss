@@ -6,10 +6,8 @@
  */
 
 .wp-block-cgb-block-colored-stripe-block  {
-  background: $green;
-  border: 0.2rem solid $black;
-  color: $black;
-  margin: 0 auto;
-  max-width: 740px;
+  background: $gray-100;
+  border: 1px dotted $gray-300;
+  color: $gray-900;
   padding: 2rem;
 }
