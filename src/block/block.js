@@ -42,6 +42,12 @@ registerBlockType( 'cgb/block-colored-stripe-block', {
     block02: {
       type:   'string'
     },
+    block03: {
+      type:   'string'
+    },
+    block04: {
+      type:   'string'
+    },
   },
 
   /**
@@ -64,7 +70,7 @@ registerBlockType( 'cgb/block-colored-stripe-block', {
 
       <div className="form-group">
         <label className="d-block">
-          Content:
+          Block 01:
           <input
             className="form-control"
             value={props.attributes.block01}
@@ -75,11 +81,33 @@ registerBlockType( 'cgb/block-colored-stripe-block', {
 
       <div className="form-group">
         <label className="d-block">
-          Color:
+          Block 02:
           <input
             className="form-control"
             value={props.attributes.block02}
             onChange={() => updateContent(event, 'block02') }
+            type="text" />
+        </label>
+      </div>
+
+      <div className="form-group">
+        <label className="d-block">
+          Block 03:
+          <input
+            className="form-control"
+            value={props.attributes.block03}
+            onChange={() => updateContent(event, 'block03') }
+            type="text" />
+        </label>
+      </div>
+
+      <div className="form-group">
+        <label className="d-block">
+          Block 04:
+          <input
+            className="form-control"
+            value={props.attributes.block04}
+            onChange={() => updateContent(event, 'block04') }
             type="text" />
         </label>
       </div>
@@ -99,19 +127,21 @@ registerBlockType( 'cgb/block-colored-stripe-block', {
   save: function( props ) {
 
     return (
-      <div>
-        <p>— Hello from the frontend.</p>
-        <p>
-          CGB BLOCK: <code>colored-stripe-block</code> is a new Gutenberg block.
-        </p>
-        <p>
-          It was created via{ ' ' }
-          <code>
-            <a href="https://github.com/ahmadawais/create-guten-block">
-              create-guten-block
-            </a>
-          </code>.
-        </p>
+      <div className="colored-stripe-block">
+        <div className="row">
+          <div className="col-md-3">
+            <div className="colored-stripe-block-section">{ props.attributes.block01 }</div>
+          </div>
+          <div className="col-md-3">
+            <div className="colored-stripe-block-section">{ props.attributes.block02 }</div>
+          </div>
+          <div className="col-md-3">
+            <div className="colored-stripe-block-section">{ props.attributes.block03 }</div>
+          </div>
+          <div className="col-md-3">
+            <div className="colored-stripe-block-section">{ props.attributes.block04 }</div>
+          </div>
+        </div>
       </div>
     );
   },
