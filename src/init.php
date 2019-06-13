@@ -27,6 +27,41 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @uses {wp-editor} for WP editor styles.
  * @since 1.0.0
  */
+
+
+// DYNAMIC BLOCK -----------------
+function borderBoxOutput($props) {
+ return '<div class="colored-stripe-block"><div class="container"><div class="row">'
+
+  . '<div class="col-md-3"> <div class="colored-stripe-block-section">'
+    . '<div class="block-section-caption">' . $props['block01Caption'] . '</div>'
+    . '<div class="block-section-description">' . $props['block01Description']
+  . '</div></div></div>'
+
+  . '<div class="col-md-3"> <div class="colored-stripe-block-section">'
+    . '<div class="block-section-caption">' . $props['block02Caption'] . '</div>'
+    . '<div class="block-section-description">' . $props['block02Description']
+  . '</div></div></div>'
+
+  . '<div class="col-md-3"> <div class="colored-stripe-block-section">'
+    . '<div class="block-section-caption">' . $props['block03Caption'] . '</div>'
+    . '<div class="block-section-description">' . $props['block03Description']
+  . '</div></div></div>'
+
+  . '<div class="col-md-3"> <div class="colored-stripe-block-section">'
+    . '<div class="block-section-caption">' . $props['block04Caption'] . '</div>'
+    . '<div class="block-section-description">' . $props['block04Description']
+  . '</div></div></div>'
+
+
+
+ . '</div></div></div>';
+}
+
+// register_block_type( 'cgb/block-colored-stripe-block', array(
+//   'render_callback' => 'borderBoxOutput',
+// ));
+
 function colored_stripe_block_cgb_block_assets() { // phpcs:ignore
   // Register block styles for both frontend + backend.
   wp_register_style(
@@ -71,6 +106,7 @@ function colored_stripe_block_cgb_block_assets() { // phpcs:ignore
       'editor_script' => 'colored_stripe_block-cgb-block-js',
       // Enqueue blocks.editor.build.css in the editor only.
       'editor_style'  => 'colored_stripe_block-cgb-block-editor-css',
+      'render_callback' => 'borderBoxOutput',
     )
   );
 }

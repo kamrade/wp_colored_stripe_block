@@ -25,6 +25,16 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
+
+let blockContent = [
+ 'block01Caption', 'block01Description',
+ 'block02Caption', 'block02Description',
+ 'block03Caption', 'block03Description',
+ 'block04Caption', 'block04Description',
+];
+
+let blockContentOutput = [ 'block01', 'block02', 'block03', 'block04' ];
+
 registerBlockType( 'cgb/block-colored-stripe-block', {
   // Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
   title: __( 'colored-stripe-block - CGB Block' ), // Block title.
@@ -36,17 +46,29 @@ registerBlockType( 'cgb/block-colored-stripe-block', {
     __( 'create-guten-block' ),
   ],
   attributes: {
-    block01: {
-      type:   'string',
+    block01Caption: {
+      type: 'string',
     },
-    block02: {
-      type:   'string'
+    block01Description: {
+      type: 'string',
     },
-    block03: {
-      type:   'string'
+    block02Caption: {
+      type: 'string'
     },
-    block04: {
-      type:   'string'
+    block02Description: {
+      type: 'string'
+    },
+    block03Caption: {
+      type: 'string'
+    },
+    block03Description: {
+      type: 'string'
+    },
+    block04Caption: {
+      type: 'string'
+    },
+    block04Description: {
+      type: 'string'
     },
   },
 
@@ -68,50 +90,21 @@ registerBlockType( 'cgb/block-colored-stripe-block', {
     return (
       <div className={ props.className }>
 
-      <div className="form-group">
-        <label className="d-block">
-          Block 01:
-          <input
-            className="form-control"
-            value={props.attributes.block01}
-            onChange={() => updateContent(event, 'block01') }
-            type="text" />
-        </label>
-      </div>
+      <h2>Colored stripe block content</h2>
+      <hr/>
 
-      <div className="form-group">
-        <label className="d-block">
-          Block 02:
-          <input
-            className="form-control"
-            value={props.attributes.block02}
-            onChange={() => updateContent(event, 'block02') }
-            type="text" />
-        </label>
-      </div>
-
-      <div className="form-group">
-        <label className="d-block">
-          Block 03:
-          <input
-            className="form-control"
-            value={props.attributes.block03}
-            onChange={() => updateContent(event, 'block03') }
-            type="text" />
-        </label>
-      </div>
-
-      <div className="form-group">
-        <label className="d-block">
-          Block 04:
-          <input
-            className="form-control"
-            value={props.attributes.block04}
-            onChange={() => updateContent(event, 'block04') }
-            type="text" />
-        </label>
-      </div>
-
+      { blockContent.map(el => (
+        <div className="form-group">
+          <label className="d-block">
+            {el}:
+            <input
+              className="form-control"
+              value={props.attributes[el]}
+              onChange={() => updateContent(event, el) }
+              type="text" />
+          </label>
+        </div>
+      )) }
       </div>
     );
   },
@@ -126,23 +119,25 @@ registerBlockType( 'cgb/block-colored-stripe-block', {
    */
   save: function( props ) {
 
-    return (
-      <div className="colored-stripe-block">
-        <div className="row">
-          <div className="col-md-3">
-            <div className="colored-stripe-block-section">{ props.attributes.block01 }</div>
-          </div>
-          <div className="col-md-3">
-            <div className="colored-stripe-block-section">{ props.attributes.block02 }</div>
-          </div>
-          <div className="col-md-3">
-            <div className="colored-stripe-block-section">{ props.attributes.block03 }</div>
-          </div>
-          <div className="col-md-3">
-            <div className="colored-stripe-block-section">{ props.attributes.block04 }</div>
-          </div>
-        </div>
-      </div>
-    );
+    return null;
+
+    // return (
+    //   <div className="colored-stripe-block">
+    //     <div className="container">
+    //       <div className="row">
+    //
+    //       { blockContentOutput.map(el => (
+    //         <div className="col-md-3">
+    //           <div className="colored-stripe-block-section">
+    //             <div className="block-section-caption">{ props.attributes[`${el}Caption`] }</div>
+    //             <div className="block-section-description">{ props.attributes[`${el}Description`] }</div>
+    //           </div>
+    //         </div>
+    //       )) }
+    //
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
   },
 } );

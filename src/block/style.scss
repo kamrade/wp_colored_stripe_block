@@ -4,13 +4,33 @@
  * CSS for both Frontend+Backend.
  */
 
-.wp-block-cgb-block-colored-stripe-block  {
-  background: $white;
-  border: 1px solid $gray-200;
-  border-radius: 4px;
-  padding: 2rem;
-}
-
 .colored-stripe-block {
-  background-color: orange;
+  margin: 4rem 0;
+  padding: 8rem;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: rgb(255, 191, 0);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: skewY(-6deg);
+  }
+
+  .block-section-caption {
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .block-section-description {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+
 }

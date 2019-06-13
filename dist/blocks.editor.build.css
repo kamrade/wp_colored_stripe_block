@@ -11,7 +11,9 @@
  * which makes it higher in priority.
  */
 .wp-block-cgb-block-colored-stripe-block {
+  font-family: 'Gotham Pro';
   background: #F4F7FB;
-  border: 1px dotted #C4CBD9;
   color: #1E222A;
-  padding: 2rem; }
+  padding: 4rem;
+  border-radius: 5px;
+  margin-bottom: 4rem; }
